@@ -42,6 +42,27 @@
     <ClCompile Include="rpc-service.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="depthStream.grpc.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="depthStream.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="helper.cc">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route_guide_client.cc">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route_guide_server.cc">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route_guide.grpc.pb.cc">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route_guide.pb.cc">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataCollect.h">
@@ -89,6 +110,21 @@
     <ClInclude Include="depth.grpc.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="depthStream.grpc.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="depthStream.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="route_guide.grpc.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="route_guide.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini" />
@@ -100,6 +136,9 @@
     </None>
     <None Include="thostmduserapi_se.dll">
       <Filter>Resource Files</Filter>
+    </None>
+    <None Include="route_guide_db.json">
+      <Filter>Header Files</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>

@@ -157,9 +157,16 @@
   <ItemGroup>
     <ClCompile Include="depth.grpc.pb.cc" />
     <ClCompile Include="depth.pb.cc" />
+    <ClCompile Include="depthStream.grpc.pb.cc" />
+    <ClCompile Include="depthStream.pb.cc" />
     <ClCompile Include="getconfig.cpp" />
+    <ClCompile Include="helper.cc" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="main2.cpp" />
+    <ClCompile Include="route_guide.grpc.pb.cc" />
+    <ClCompile Include="route_guide.pb.cc" />
+    <ClCompile Include="route_guide_client.cc" />
+    <ClCompile Include="route_guide_server.cc" />
     <ClCompile Include="rpc-service.cpp" />
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="traderApi.cpp" />
@@ -170,9 +177,14 @@
     <ClInclude Include="define.h" />
     <ClInclude Include="depth.grpc.pb.h" />
     <ClInclude Include="depth.pb.h" />
+    <ClInclude Include="depthStream.grpc.pb.h" />
+    <ClInclude Include="depthStream.pb.h" />
     <ClInclude Include="getconfig.h" />
+    <ClInclude Include="helper.h" />
     <ClInclude Include="main.h" />
     <ClInclude Include="output.h" />
+    <ClInclude Include="route_guide.grpc.pb.h" />
+    <ClInclude Include="route_guide.pb.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="ThostFtdcMdApi.h" />
@@ -184,6 +196,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini" />
+    <None Include="route_guide_db.json" />
     <None Include="thostmduserapi_se.dll" />
     <None Include="thosttraderapi_se.dll" />
     <None Include="WinDataCollect.dll" />
