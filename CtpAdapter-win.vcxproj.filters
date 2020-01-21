@@ -33,6 +33,15 @@
     <ClCompile Include="main2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="depth.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="depth.grpc.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rpc-service.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DataCollect.h">
@@ -72,6 +81,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="traderSpi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="depth.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="depth.grpc.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
