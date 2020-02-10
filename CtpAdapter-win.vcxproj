@@ -104,17 +104,17 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;_DEBUG;_CONSOLE;_CRT_NONSTDC_NO_DEPRECATE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <UndefinePreprocessorDefinitions>
       </UndefinePreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\zdd-github\grpc-master\include;E:\zdd-github\grpc-master\third_party\protobuf\src</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.\;E:\github\boost_1_62_0;.\;E:\zdd-github\grpc-master\include;E:\zdd-github\grpc-master\third_party\protobuf\src</AdditionalIncludeDirectories>
       <AdditionalOptions>-D_WIN32_WINNT=0x600 %(AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\synchronization\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\time\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\types\Debug;E:\zdd-github\grpc-master\.build\third_party\zlib\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\strings\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\random\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\numeric\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\hash\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\flags\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\base\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\container\Debug;E:\zdd-github\grpc-master\.build\third_party\boringssl\crypto\Debug;E:\Windows Kits\10\Lib\10.0.18362.0\um\x64;E:\zdd-github\grpc-master\.build\third_party\boringssl\ssl\Debug;E:\zdd-github\grpc-master\.build\third_party\boringssl\Debug;E:\zdd-github\grpc-master\.build\third_party\protobuf\Debug;E:\zdd-github\grpc-master\.build\Debug;E:\zdd-github\grpc-master\.build\third_party\cares\cares\lib\Debug</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>E:\github\boost_1_62_0\lib\vc14_x64\lib;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\synchronization\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\time\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\types\Debug;E:\zdd-github\grpc-master\.build\third_party\zlib\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\strings\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\random\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\numeric\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\hash\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\flags\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\base\Debug;E:\zdd-github\grpc-master\.build\third_party\abseil-cpp\absl\container\Debug;E:\zdd-github\grpc-master\.build\third_party\boringssl\crypto\Debug;E:\Windows Kits\10\Lib\10.0.18362.0\um\x64;E:\zdd-github\grpc-master\.build\third_party\boringssl\ssl\Debug;E:\zdd-github\grpc-master\.build\third_party\boringssl\Debug;E:\zdd-github\grpc-master\.build\third_party\protobuf\Debug;E:\zdd-github\grpc-master\.build\Debug;E:\zdd-github\grpc-master\.build\third_party\cares\cares\lib\Debug</AdditionalLibraryDirectories>
       <AdditionalDependencies>WinDataCollect.lib;thostmduserapi_se.lib;thosttraderapi_se.lib;grpc++_unsecure.lib;zlibd.lib;ssl.lib;libprotobufd.lib;libprotobuf-lited.lib;libprotocd.lib;WS2_32.Lib;cares.lib;upb.lib;boringssl_gtest.lib;grpcpp_channelz.lib;grpc_csharp_ext.lib;grpc++_reflection.lib;grpc++_error_details.lib;grpc_plugin_support.lib;grpc++_alts.lib;address_sorting.lib;grpc.lib;grpc++.lib;grpc_unsecure.lib;zlibstaticd.lib;crypto.lib;gpr.lib;grpc_cronet.lib;absl_absl_base.lib;absl_absl_dynamic_annotations.lib;absl_absl_exponential_biased.lib;absl_absl_log_severity.lib;absl_absl_malloc_internal.lib;absl_absl_periodic_sampler.lib;absl_absl_raw_logging_internal.lib;absl_absl_scoped_set_env.lib;absl_absl_spinlock_wait.lib;absl_absl_throw_delegate.lib;absl_absl_hashtablez_sampler.lib;absl_absl_raw_hash_set.lib;absl_absl_flags.lib;absl_absl_flags_config.lib;absl_absl_flags_handle.lib;absl_absl_flags_internal.lib;absl_absl_flags_marshalling.lib;absl_absl_flags_program_name.lib;absl_absl_flags_parse.lib;absl_absl_flags_registry.lib;absl_absl_flags_usage.lib;absl_absl_flags_usage_internal.lib;absl_absl_city.lib;absl_absl_hash.lib;absl_absl_int128.lib;absl_absl_random_distributions.lib;absl_absl_random_internal_distribution_test_util.lib;absl_absl_random_internal_pool_urbg.lib;absl_absl_random_internal_randen.lib;absl_absl_random_internal_randen_hwaes.lib;absl_absl_random_internal_randen_hwaes_impl.lib;absl_absl_random_internal_randen_slow.lib;absl_absl_random_internal_seed_material.lib;absl_absl_random_seed_gen_exception.lib;absl_absl_random_seed_sequences.lib;absl_absl_str_format_internal.lib;absl_absl_strings.lib;absl_absl_strings_internal.lib;absl_absl_graphcycles_internal.lib;absl_absl_synchronization.lib;absl_absl_civil_time.lib;absl_absl_time.lib;absl_absl_time_zone.lib;absl_absl_bad_any_cast_impl.lib;absl_absl_bad_optional_access.lib;absl_absl_bad_variant_access.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -155,8 +155,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="depth.grpc.pb.cc" />
-    <ClCompile Include="depth.pb.cc" />
+    <ClCompile Include="CtpApiAdapter.cpp" />
     <ClCompile Include="depthStream.grpc.pb.cc" />
     <ClCompile Include="depthStream.pb.cc" />
     <ClCompile Include="getconfig.cpp" />
@@ -171,12 +170,12 @@
     <ClCompile Include="stdafx.cpp" />
     <ClCompile Include="traderApi.cpp" />
     <ClCompile Include="traderSpi.cpp" />
+    <ClCompile Include="websocketpp.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CtpApiAdapter.h" />
     <ClInclude Include="DataCollect.h" />
     <ClInclude Include="define.h" />
-    <ClInclude Include="depth.grpc.pb.h" />
-    <ClInclude Include="depth.pb.h" />
     <ClInclude Include="depthStream.grpc.pb.h" />
     <ClInclude Include="depthStream.pb.h" />
     <ClInclude Include="getconfig.h" />
@@ -193,6 +192,7 @@
     <ClInclude Include="ThostFtdcUserApiStruct.h" />
     <ClInclude Include="traderApi.h" />
     <ClInclude Include="traderSpi.h" />
+    <ClInclude Include="websocketpp.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="config.ini" />

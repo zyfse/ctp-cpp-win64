@@ -15,24 +15,34 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.example.rpcdemo";
+option java_package = "com.example.depth";
 option java_outer_classname = "DepthProto";
-option objc_class_prefix = "HLW";
+option objc_class_prefix = "RTG";
 
 package depth;
 
-// The greeting service definition.
-service DepthService {
-  // Sends a greeting
-  rpc DepthReq (DepthRequest) returns (DepthRsP) {}
+// Interface exported by the server.
+service Depth {
+  // A server-to-client streaming RPC.
+  //
+  // Obtains the Features available within the given Rectangle.  Results are
+  // streamed rather than returned at once (e.g. in a response message with a
+  // repeated field), as the rectangle may cover a large area and contain a
+  // huge number of features.
+  rpc StreamDepth(DepthRequest) returns (stream Feature) {}
 }
 
-// The request message containing the user's name.
 message DepthRequest {
-  string symbol = 1;
+  string exchange = 1;
+  string symbol = 2;
 }
 
-// The response message containing the greetings
-message DepthRsP {
-  string message = 1;
+// A feature names something at a given point.
+//
+// If a feature could not be named, the name is empty.
+message Feature {
+  // The name of the feature.
+  string name = 1;
+
 }
+

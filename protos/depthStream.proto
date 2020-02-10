@@ -15,24 +15,45 @@
 syntax = "proto3";
 
 option java_multiple_files = true;
-option java_package = "com.example.rpcdemo";
+option java_package = "com.zdd.adapter.shfe";
 option java_outer_classname = "DepthStreamProto";
 option objc_class_prefix = "HLW";
 
-package depth;
+package depthStream;
 
 // The greeting service definition.
 service DepthStreamService {
   // Sends a greeting
-  rpc DepthStreamReq (DepthStreamRequest) returns (stream DepthStreamRsP) {}
+  rpc DepthStreamReq (stream DepthStreamRequest) returns (stream DepthStreamRsP) {}
 }
 
 // The request message containing the user's name.
 message DepthStreamRequest {
-  string symbol = 1;
+  string exchangeId = 1;
+  string instrument = 2;
+  string securityType = 3;
+  string type = 4;
 }
 
 // The response message containing the greetings
 message DepthStreamRsP {
-  string message = 1;
+  string exchangeId = 1;
+  string instrument = 2;
+  Level bidLevel1 = 3;
+  Level bidLevel2 = 4;
+  Level bidLevel3 = 5;
+  Level bidLevel4 = 6;
+  Level bidLevel5 = 7;
+  Level askLevel1 = 8;
+  Level askLevel2 = 9;
+  Level askLevel3 = 10;
+  Level askLevel4 = 11;
+  Level askLevel5 = 12;
+  string date = 13;
+  string time = 14;
+}
+
+message Level {
+  double price = 1;
+  double volume = 2;
 }

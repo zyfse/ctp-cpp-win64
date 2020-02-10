@@ -28,7 +28,19 @@
 //	sh.ReqUserLogin();
 //	WaitForSingleObject(g_hEvent, INFINITE);
 //
-//
+//	string g_chFrontMdaddr = getConfig("config", "FrontMdAddr");
+//	cout << "g_chFrontMdaddr = " << g_chFrontMdaddr << "\n" << endl;
+//	CThostFtdcMdApi  *pUserMdApi =
+//		CThostFtdcMdApi::CreateFtdcMdApi(".\\flow\\md");
+//	CSimpleMdHandler ash(pUserMdApi);
+//	pUserMdApi->RegisterSpi(&ash);
+//	pUserMdApi->RegisterFront(const_cast<char *>(g_chFrontMdaddr.c_str()));
+//	pUserMdApi->Init();
+//	WaitForSingleObject(xinhao, INFINITE);
+//	sh.ReqQryInstrument();//查询合约
+//	WaitForSingleObject(xinhao, INFINITE);
+//	ash.SubscribeMarketData();//订阅行情
+//	_getch();
 //
 //	_getch();
 //	while (true)

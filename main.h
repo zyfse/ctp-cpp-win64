@@ -8,7 +8,7 @@
 #include <time.h>
 #include "ThostFtdcTraderApi.h"
 #include "ThostFtdcMdApi.h"
-#include "DataCollect.h""
+#include "DataCollect.h"
 
 #include <conio.h>
 #include "getconfig.h"
@@ -18,40 +18,53 @@
 #include <vector>
 #include <map>
 
+#ifdef BAZEL_BUILD
+#include "examples/protos/route_guide.grpc.pb.h"
+#else
+#include "depthStream.grpc.pb.h"
+#endif
+
 using namespace std;
-FILE *logfile;
+using grpc::ServerReaderWriter;
+using depthStream::DepthStreamRequest;
+using depthStream::DepthStreamRsP;
+
+
+FILE * logfile;
+
+ServerReaderWriter<DepthStreamRsP, DepthStreamRequest>* g_writer;
 
 // 报单录入操作是否完成的标志
 // Create a manual reset event with no signal
 HANDLE g_hEvent = CreateEvent(NULL, false, false, NULL);
 /// 会员代码
-TThostFtdcBrokerIDType g_chBrokerID;
+TThostFtdcBrokerIDType g_chBrokerID = "";
 /// 交易用户代码
-TThostFtdcUserIDType g_chUserID;
+TThostFtdcUserIDType g_chUserID = "";
 /// 交易用户密码
-TThostFtdcPasswordType g_chPassword;
+TThostFtdcPasswordType g_chPassword = "";
 /// 交易所代码
-TThostFtdcExchangeIDType g_chExchangeID;
+TThostFtdcExchangeIDType g_chExchangeID = "";
 ///合约代码
-TThostFtdcInstrumentIDType	g_chInstrumentID;
+TThostFtdcInstrumentIDType	g_chInstrumentID = "";
 ///投资者代码
-TThostFtdcInvestorIDType g_chInvestorID;
+TThostFtdcInvestorIDType g_chInvestorID = "";
 ///预埋撤单编号
-TThostFtdcParkedOrderActionIDType	g_chParkedOrderActionID1;
+TThostFtdcParkedOrderActionIDType	g_chParkedOrderActionID1 = "";
 ///预埋报单编号
-TThostFtdcParkedOrderIDType	g_chParkedOrderID1;
+TThostFtdcParkedOrderIDType	g_chParkedOrderID1 = "";
 ///报单引用
-TThostFtdcOrderRefType	g_chOrderRef;
+TThostFtdcOrderRefType	g_chOrderRef = "";
 ///前置编号
-TThostFtdcFrontIDType	g_chFrontID;
+TThostFtdcFrontIDType	g_chFrontID = 0;
 ///会话编号
-TThostFtdcSessionIDType	g_chSessionID;
+TThostFtdcSessionIDType	g_chSessionID = 0;
 ///报单编号
-TThostFtdcOrderSysIDType	g_chOrderSysID;
+TThostFtdcOrderSysIDType	g_chOrderSysID = "";
 ///止损价
-TThostFtdcPriceType	g_chStopPrice;
+TThostFtdcPriceType	g_chStopPrice = 0;
 ///报价引用
-TThostFtdcOrderRefType	g_chQuoteRef;
+TThostFtdcOrderRefType	g_chQuoteRef = "";
 int FrontID = 0;
 int SessionID = 0;
 int Limitprice = 0;
@@ -92,6 +105,7 @@ CTraderApi *pUserApi = new CTraderApi;
 //行情类
 class CSimpleMdHandler : public CThostFtdcMdSpi
 {
+
 public:
 	// 构造函数，需要一个有效的指向CThostFtdcMduserApi实例的指针
 	CSimpleMdHandler(CThostFtdcMdApi *pUserApi) : m_pUserMdApi(pUserApi) {}
@@ -143,6 +157,38 @@ public:
 		//SubscribeForQuoteRsp();//询价请求
 	}
 
+	// 收行情()
+	//void SubscribeMarketData()//收行情
+	//{
+	//	int md_num = 0;
+	//	char **ppInstrumentID = new char*[5000];
+	//	md_InstrumentID.push_back("au2003");
+	//	for (int count1 = 0; count1 <= md_InstrumentID.size() / 500; count1++)
+	//	{
+	//		if (count1 < md_InstrumentID.size() / 500)
+	//		{
+	//			int a = 0;
+	//			for (a; a < 500; a++)
+	//			{
+	//				ppInstrumentID[a] = const_cast<char *>(md_InstrumentID.at(md_num).c_str());
+	//				md_num++;
+	//			}
+	//			int result = m_pUserMdApi->SubscribeMarketData(ppInstrumentID, a);
+	//			LOG((result == 0) ? "订阅行情请求1......发送成功\n" : "订阅行情请求1......发送失败，错误序号=[%d]\n", result);
+	//		}
+	//		else if (count1 = md_InstrumentID.size() / 500)
+	//		{
+	//			int count2 = 0;
+	//			for (count2; count2 < md_InstrumentID.size() % 500; count2++)
+	//			{
+	//				ppInstrumentID[count2] = const_cast<char *>(md_InstrumentID.at(md_num).c_str());
+	//				md_num++;
+	//			}
+	//			int result = m_pUserMdApi->SubscribeMarketData(ppInstrumentID, count2);
+	//			LOG((result == 0) ? "订阅行情请求2......发送成功\n" : "订阅行情请求2......发送失败，错误序号=[%d]\n", result);
+	//		}
+	//	}
+	//}
 	void SubscribeMarketData()//收行情
 	{
 		int md_num = 0;
@@ -160,7 +206,7 @@ public:
 				int result = m_pUserMdApi->SubscribeMarketData(ppInstrumentID, a);
 				LOG((result == 0) ? "订阅行情请求1......发送成功\n" : "订阅行情请求1......发送失败，错误序号=[%d]\n", result);
 			}
-			else if (count1 = md_InstrumentID.size() / 500)
+			else if (1)
 			{
 				int count2 = 0;
 				for (count2; count2 < md_InstrumentID.size() % 500; count2++)
@@ -207,7 +253,25 @@ public:
 			LOG("\tTurnover = [%.8lf]\n", pDepthMarketData->Turnover);
 			LOG("\tOpenInterest = [%d]\n", pDepthMarketData->OpenInterest);
 		}
-		LOG("</OnRtnDepthMarketData>\n");
+		LOG("</OnRtnDepthMarketData>\n"); 
+		depthStream::DepthStreamRsP* f = new depthStream::DepthStreamRsP();
+		// todo
+		f->set_exchangeid("shfe");
+		f->set_instrument(pDepthMarketData->InstrumentID);
+		depthStream::Level* askLevel1 = new depthStream::Level();
+		depthStream::Level* bidLevel1 = new depthStream::Level();
+		askLevel1->set_price(pDepthMarketData->AskPrice1);
+		askLevel1->set_volume(pDepthMarketData->AskVolume1);
+		bidLevel1->set_price(pDepthMarketData->BidPrice1);
+		bidLevel1->set_volume(pDepthMarketData->BidVolume1);
+		f->set_allocated_asklevel1(askLevel1);
+		f->set_allocated_bidlevel1(bidLevel1);
+		f->set_date(pDepthMarketData->TradingDay);
+		f->set_time(pDepthMarketData->UpdateTime);
+		g_writer->Write(*f);
+		//delete askLevel1;
+		//delete bidLevel1;
+		delete f;
 	}
 
 	///订阅询价请求
@@ -1280,13 +1344,37 @@ public:
 		int b = m_pUserApi->ReqQryOptionInstrCommRate(&a, nRequestID++);
 		LOG((b == 0) ? "请求查询期权合约手续费......发送成功\n" : "请求查询期权合约手续费......发送失败，错误序号=[%d]\n", b);
 	}
-
+	 
+	//请求查询合约 （原版）
+	//void ReqQryInstrument()
+	//{
+	//	CThostFtdcQryInstrumentField a = { 0 };
+	//	strcpy_s(a.ExchangeID, g_chExchangeID);
+	//	strcpy_s(a.InstrumentID, g_chInstrumentID);
+	//	//strcpy_s(a.ExchangeInstID, "SHFE");
+	//	//strcpy_s(a.ProductID, "au2003");
+	//	int b = m_pUserApi->ReqQryInstrument(&a, nRequestID++);
+	//	LOG((b == 0) ? "请求查询合约......发送成功\n" : "请求查询合约......发送失败，错误序号=[%d]\n", b);
+	//}
 	//请求查询合约
 	void ReqQryInstrument()
 	{
 		CThostFtdcQryInstrumentField a = { 0 };
-		strcpy_s(a.ExchangeID, g_chExchangeID);
-		strcpy_s(a.InstrumentID, g_chInstrumentID);
+		//strcpy_s(a.ExchangeID, "CFFEX");
+		//strcpy_s(a.InstrumentID, "IF2006");
+		strcpy_s(a.ExchangeID, "SHFE");
+		strcpy_s(a.InstrumentID, "au2006");
+		int b = m_pUserApi->ReqQryInstrument(&a, nRequestID++);
+		LOG((b == 0) ? "请求查询合约......发送成功\n" : "请求查询合约......发送失败，错误序号=[%d]\n", b);
+	}
+
+	//请求查询合约
+	void ReqQryInstrument(TThostFtdcExchangeIDType exchangeId,
+		TThostFtdcInstrumentIDType instrumentID)
+	{
+		CThostFtdcQryInstrumentField a = { 0 };
+		strcpy_s(a.ExchangeID, exchangeId);
+		strcpy_s(a.InstrumentID, instrumentID);
 		//strcpy_s(a.ExchangeInstID,"");
 		//strcpy_s(a.ProductID, "m");
 		int b = m_pUserApi->ReqQryInstrument(&a, nRequestID++);
@@ -2340,8 +2428,11 @@ public:
 		LOG((b == 0) ? "请求查询二级代理商信息......发送成功\n" : "请求查询二级代理商信息......发送失败，错误序号=[%d]\n", b);
 	}
 
-
+	CThostFtdcTraderApi * getUserApi() {
+		return m_pUserApi;
+	}
 
 private:
 	CThostFtdcTraderApi *m_pUserApi;
+
 };

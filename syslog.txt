@@ -19,6 +19,9 @@ v6.3.15_20190220 20:39:53<RegisterSpi>
 	AppID [aaa]
 	nRequestID [1]
 </ReqAuthenticate>
+<OnFrontDisconnected>
+	nReason [4097]
+</OnFrontDisconnected>
 <ReqUserLogin>
 	TradingDay []
 	BrokerID [9999]
@@ -35,21 +38,25 @@ v6.3.15_20190220 20:39:53<RegisterSpi>
 	nRequestID [0]
 </ReqUserLogin>
 <OnRspUserLogin>
-	TradingDay [20200117]
-	LoginTime [17:38:03]
+	TradingDay [20200206]
+	LoginTime [17:27:52]
 	BrokerID [9999]
 	UserID [136369]
 	SystemName [TradingHosting]
 	MaxOrderRef [1]
-	SHFETime [18:24:51]
-	DCETime [18:24:51]
-	CZCETime [18:24:51]
-	FFEXTime [18:24:51]
+	SHFETime [18:15:27]
+	DCETime [18:15:27]
+	CZCETime [18:15:27]
+	FFEXTime [18:15:27]
 	INETime [--:--:--]
 	FrontID [1]
-	SessionID [1959003169]
+	SessionID [764956027]
 	ErrorMsg [ÕýÈ·]
 	ErrorID [0]
 	nRequestID [0]
 	bIsLast [1]
 </OnRspUserLogin>
+	login num = 0
+OnRspUserLogin:
+	ErrorCode=[0], ErrorMsg=[CTP:No Error]
+	RequestID=[0], Chain=[1]

@@ -33,35 +33,35 @@
     <ClCompile Include="main2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="depth.pb.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="depth.grpc.pb.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="rpc-service.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="depthStream.grpc.pb.cc">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="depthStream.pb.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="helper.cc">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="route_guide_client.cc">
-      <Filter>Header Files</Filter>
-    </ClCompile>
-    <ClCompile Include="route_guide_server.cc">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="route_guide.grpc.pb.cc">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="route_guide.pb.cc">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route_guide_client.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="route_guide_server.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="depthStream.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="depthStream.grpc.pb.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="websocketpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CtpApiAdapter.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -104,10 +104,13 @@
     <ClInclude Include="traderSpi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="depth.pb.h">
+    <ClInclude Include="helper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="depth.grpc.pb.h">
+    <ClInclude Include="route_guide.grpc.pb.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="route_guide.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="depthStream.grpc.pb.h">
@@ -116,13 +119,10 @@
     <ClInclude Include="depthStream.pb.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="helper.h">
+    <ClInclude Include="websocketpp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="route_guide.grpc.pb.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="route_guide.pb.h">
+    <ClInclude Include="CtpApiAdapter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

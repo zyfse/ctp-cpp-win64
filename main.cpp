@@ -1,5 +1,9 @@
+//
+//#define NOMINMAX
+//
 //#include "stdafx.h"
 //#include "main.h"
+//
 //
 //#pragma comment(lib,"thosttraderapi_se.dll")
 //
